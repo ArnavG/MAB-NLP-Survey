@@ -1,0 +1,574 @@
+% Use this file for citations not found in the ACL Anthology (contained in "anthology.bib").
+
+@article{KuleshovPrecup2000,
+    author = {Volodymyr Kuleshov and Doina Precup},
+    title = {Algorithms for the multi-armed bandit problem},
+    journal = {Journal of Machine Learning Research 1},
+    year = {2000},
+    url = {https://proceedings.mlr.press/v23/agrawal12/agrawal12.pdf}
+}
+
+@article{AgarwalGoyal2012,
+    author = {Shipra Agrawal and Navin Goyal},
+    title = {Analysis of Thompson Sampling for the Multi-armed Bandit Problem},
+    journal = {Proceedings of the 25th Annual Conference on Learning Theory, PMLR},
+    year = {2012},
+    url = {https://www.cs.mcgill.ca/~vkules/bandits.pdf}
+}
+
+@article{Auer2002,
+    author = {Auer, Peter and Nicolò Cesa-Bianchi and Yoav Freund and Robert E. Schapire},
+    title = {The Nonstochastic Multiarmed Bandit Problem},
+    journal = {Society for Industrial and Applied Mathematics Journal on Computing},
+    year = {2002},
+    url = {http://rob.schapire.net/papers/AuerCeFrSc01.pdf}
+}
+
+@article{Lu2010,
+    author = {Lu, Tyler and Dávid Pál and Martin Pál},
+    title = {Contextual Multi-Armed Bandits},
+    journal = {Proceedings of the Thirteenth International Conference on Artificial Intelligence and Statistics, PMLR, Google Research},
+    year = {2010},
+    url = {https://proceedings.mlr.press/v9/lu10a/lu10a.pdf}
+}
+
+@article{Madhavan2024,
+    author = {Madhavan, Rahul and Aurghya Maiti and Gaurav Sinha and Siddharth Barman},
+    title = {Causal Contextual Bandits with Adaptive Context},
+    journal = {Reinforcement Learning Conference},
+    year = {2024},
+    url = {https://arxiv.org/pdf/2405.18626}
+}
+
+@article{BounefouffSurvey2019,
+    author = {Djallel Bouneffouf and Irina Rish},
+    title = {A Survey on Practical Applications of Multi-Armed and Contextual Bandits},
+    year = {2019},
+    url = {https://arxiv.org/pdf/1904.10040}
+}
+
+@inproceedings{sokolov-etal-2016-learning,
+    title = "Learning Structured Predictors from Bandit Feedback for Interactive {NLP}",
+    author = "Sokolov, Artem  and
+      Kreutzer, Julia  and
+      Lo, Christopher  and
+      Riezler, Stefan",
+    editor = "Erk, Katrin  and
+      Smith, Noah A.",
+    booktitle = "Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+    month = aug,
+    year = "2016",
+    address = "Berlin, Germany",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/P16-1152/",
+    doi = "10.18653/v1/P16-1152",
+    pages = "1610--1620"
+}
+
+@inproceedings{urteaga-etal-2023-multi,
+    title = "Multi-armed bandits for resource efficient, online optimization of language model pre-training: the use case of dynamic masking",
+    author = "Urteaga, Inigo  and
+      Draidia, Moulay Zaidane  and
+      Lancewicki, Tomer  and
+      Khadivi, Shahram",
+    editor = "Rogers, Anna  and
+      Boyd-Graber, Jordan  and
+      Okazaki, Naoaki",
+    booktitle = "Findings of the Association for Computational Linguistics: ACL 2023",
+    month = jul,
+    year = "2023",
+    address = "Toronto, Canada",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2023.findings-acl.675/",
+    doi = "10.18653/v1/2023.findings-acl.675",
+    pages = "10609--10627",
+    abstract = "We design and evaluate a Bayesian optimization framework for resource efficient pre-training of Transformer-based language models (TLMs). TLM pre-training requires high computational resources and introduces many unresolved design choices, such as selecting its pre-training hyperparameters.We propose a multi-armed bandit framework for the sequential selection of pre-training hyperparameters, aimed at optimizing language model performance, in a resource efficient manner. We design a Thompson sampling algorithm, with a surrogate Gaussian process reward model of the Masked Language Model (MLM) pre-training objective, for its sequential minimization. Instead of MLM pre-training with fixed masking probabilities, the proposed Gaussian process-based Thompson sampling (GP-TS) accelerates pre-training by sequentially selecting masking hyperparameters that improve performance. We empirically demonstrate how GP-TS pre-trains language models efficiently, i.e., it achieves lower MLM loss in fewer epochs, across a variety of settings. In addition, GP-TS pre-trained TLMs attain competitive downstream performance, while avoiding expensive hyperparameter grid search. GP-TS provides an interactive framework for efficient and optimized TLM pre-training that, by circumventing costly hyperparameter selection, enables substantial computational savings."
+}
+
+@inproceedings{nguyen-etal-2017-reinforcement,
+    title = "Reinforcement Learning for Bandit Neural Machine Translation with Simulated Human Feedback",
+    author = "Nguyen, Khanh  and
+      Daum{\'e} III, Hal  and
+      Boyd-Graber, Jordan",
+    editor = "Palmer, Martha  and
+      Hwa, Rebecca  and
+      Riedel, Sebastian",
+    booktitle = "Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing",
+    month = sep,
+    year = "2017",
+    address = "Copenhagen, Denmark",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/D17-1153/",
+    doi = "10.18653/v1/D17-1153",
+    pages = "1464--1474",
+    abstract = "Machine translation is a natural candidate problem for reinforcement learning from human feedback: users provide quick, dirty ratings on candidate translations to guide a system to improve. Yet, current neural machine translation training focuses on expensive human-generated reference translations. We describe a reinforcement learning algorithm that improves neural machine translation systems from simulated human feedback. Our algorithm combines the advantage actor-critic algorithm (Mnih et al., 2016) with the attention-based neural encoder-decoder architecture (Luong et al., 2015). This algorithm (a) is well-designed for problems with a large action space and delayed rewards, (b) effectively optimizes traditional corpus-level machine translation metrics, and (c) is robust to skewed, high-variance, granular feedback modeled after actual human behaviors."
+}
+
+@inproceedings{kreutzer-etal-2018-neural,
+    title = "Can Neural Machine Translation be Improved with User Feedback?",
+    author = "Kreutzer, Julia  and
+      Khadivi, Shahram  and
+      Matusov, Evgeny  and
+      Riezler, Stefan",
+    editor = "Bangalore, Srinivas  and
+      Chu-Carroll, Jennifer  and
+      Li, Yunyao",
+    booktitle = "Proceedings of the 2018 Conference of the North {A}merican Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 3 (Industry Papers)",
+    month = jun,
+    year = "2018",
+    address = "New Orleans - Louisiana",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/N18-3012/",
+    doi = "10.18653/v1/N18-3012",
+    pages = "92--105",
+    abstract = "We present the first real-world application of methods for improving neural machine translation (NMT) with human reinforcement, based on explicit and implicit user feedback collected on the eBay e-commerce platform. Previous work has been confined to simulation experiments, whereas in this paper we work with real logged feedback for offline bandit learning of NMT parameters. We conduct a thorough analysis of the available explicit user judgments{---}five-star ratings of translation quality{---}and show that they are not reliable enough to yield significant improvements in bandit learning. In contrast, we successfully utilize implicit task-based feedback collected in a cross-lingual search task to improve task-specific and machine translation quality metrics."
+}
+
+@inproceedings{vaswani2017,
+author = {Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N. and Kaiser, \L{}ukasz and Polosukhin, Illia},
+title = {Attention is all you need},
+year = {2017},
+isbn = {9781510860964},
+publisher = {Curran Associates Inc.},
+address = {Red Hook, NY, USA},
+abstract = {The dominant sequence transduction models are based on complex recurrent or convolutional neural networks that include an encoder and a decoder. The best performing models also connect the encoder and decoder through an attention mechanism. We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely. Experiments on two machine translation tasks show these models to be superior in quality while being more parallelizable and requiring significantly less time to train. Our model achieves 28.4 BLEU on the WMT 2014 English-to-German translation task, improving over the existing best results, including ensembles, by over 2 BLEU. On the WMT 2014 English-to-French translation task, our model establishes a new single-model state-of-the-art BLEU score of 41.0 after training for 3.5 days on eight GPUs, a small fraction of the training costs of the best models from the literature.},
+booktitle = {Proceedings of the 31st International Conference on Neural Information Processing Systems},
+pages = {6000–6010},
+numpages = {11},
+url={https://arxiv.org/pdf/1706.03762},
+location = {Long Beach, California, USA},
+series = {NIPS'17}
+}
+
+@inproceedings{kreutzer-etal-2018-reliability,
+    title = "Reliability and Learnability of Human Bandit Feedback for Sequence-to-Sequence Reinforcement Learning",
+    author = "Kreutzer, Julia  and
+      Uyheng, Joshua  and
+      Riezler, Stefan",
+    editor = "Gurevych, Iryna  and
+      Miyao, Yusuke",
+    booktitle = "Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+    month = jul,
+    year = "2018",
+    address = "Melbourne, Australia",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/P18-1165/",
+    doi = "10.18653/v1/P18-1165",
+    pages = "1777--1788",
+    abstract = "We present a study on reinforcement learning (RL) from human bandit feedback for sequence-to-sequence learning, exemplified by the task of bandit neural machine translation (NMT). We investigate the reliability of human bandit feedback, and analyze the influence of reliability on the learnability of a reward estimator, and the effect of the quality of reward estimates on the overall RL task. Our analysis of cardinal (5-point ratings) and ordinal (pairwise preferences) feedback shows that their intra- and inter-annotator {\ensuremath{\alpha}}-agreement is comparable. Best reliability is obtained for standardized cardinal feedback, and cardinal feedback is also easiest to learn and generalize from. Finally, improvements of over 1 BLEU can be obtained by integrating a regression-based reward estimator trained on cardinal feedback for 800 translations into RL for NMT. This shows that RL is possible even from small amounts of fairly reliable human feedback, pointing to a great potential for applications at larger scale."
+}
+
+@inproceedings{kreutzer-etal-2017-bandit,
+    title = "Bandit Structured Prediction for Neural Sequence-to-Sequence Learning",
+    author = "Kreutzer, Julia  and
+      Sokolov, Artem  and
+      Riezler, Stefan",
+    editor = "Barzilay, Regina  and
+      Kan, Min-Yen",
+    booktitle = "Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+    month = jul,
+    year = "2017",
+    address = "Vancouver, Canada",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/P17-1138/",
+    doi = "10.18653/v1/P17-1138",
+    pages = "1503--1513",
+    abstract = "Bandit structured prediction describes a stochastic optimization framework where learning is performed from partial feedback. This feedback is received in the form of a task loss evaluation to a predicted output structure, without having access to gold standard structures. We advance this framework by lifting linear bandit learning to neural sequence-to-sequence learning problems using attention-based recurrent neural networks. Furthermore, we show how to incorporate control variates into our learning algorithms for variance reduction and improved generalization. We present an evaluation on a neural machine translation task that shows improvements of up to 5.89 BLEU points for domain adaptation from simulated bandit feedback."
+}
+
+@inproceedings{meta-recommender-bandits,
+author = {Zhu, Zheqing and Van Roy, Benjamin},
+title = {Scalable Neural Contextual Bandit for Recommender Systems},
+year = {2023},
+isbn = {9798400701245},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3583780.3615048},
+doi = {10.1145/3583780.3615048},
+abstract = {High-quality recommender systems ought to deliver both innovative and relevant content through effective and exploratory interactions with users. Yet, supervised learning-based neural networks, which form the backbone of many existing recommender systems, only leverage recognized user interests, falling short when it comes to efficiently uncovering unknown user preferences. While there has been some progress with neural contextual bandit algorithms towards enabling online exploration through neural networks, their onerous computational demands hinder widespread adoption in real-world recommender systems. In this work, we propose a scalable sample-efficient neural contextual bandit algorithm for recommender systems. To do this, we design an epistemic neural network architecture, Epistemic Neural Recommendation (ENR), that enables Thompson sampling at a large scale. In two distinct large-scale experiments with real-world tasks, ENR significantly boosts click-through rates and user ratings by at least 9\% and 6\% respectively compared to state-of-the-art neural contextual bandit algorithms. Furthermore, it achieves equivalent performance with at least 29\% fewer user interactions compared to the best-performing baseline algorithm. Remarkably, while accomplishing these improvements, ENR demands orders of magnitude fewer computational resources than neural contextual bandit baseline algorithms.},
+booktitle = {Proceedings of the 32nd ACM International Conference on Information and Knowledge Management},
+pages = {3636–3646},
+numpages = {11},
+keywords = {contextual bandits, decision making under uncertainty, exploration vs exploitation, recommender systems, reinforcement learning},
+location = {Birmingham, United Kingdom},
+series = {CIKM '23}
+}
+
+@inproceedings{naradowsky-etal-2020-machine,
+    title = "Machine Translation System Selection from Bandit Feedback",
+    author = "Naradowsky, Jason  and
+      Zhang, Xuan  and
+      Duh, Kevin",
+    editor = "Denkowski, Michael  and
+      Federmann, Christian",
+    booktitle = "Proceedings of the 14th Conference of the Association for Machine Translation in the Americas (Volume 1: Research Track)",
+    month = oct,
+    year = "2020",
+    address = "Virtual",
+    publisher = "Association for Machine Translation in the Americas",
+    url = "https://aclanthology.org/2020.amta-research.5/",
+    pages = "50--63"
+}
+
+@inproceedings{Amazon-Moerchen2020,
+author = {Moerchen, Fabian and Ernst, Patrick and Zappella, Giovanni},
+title = {Personalizing Natural Language Understanding using Multi-armed Bandits and Implicit Feedback},
+year = {2020},
+isbn = {9781450368599},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3340531.3412736},
+doi = {10.1145/3340531.3412736},
+abstract = {Natural Language Understanding (NLU) models on voice-controlled speakers face several challenges. In particular, music streaming services have large catalogs, often containing millions of songs, artists, and albums and several thousands of custom playlists and stations. In many cases there is ambiguity and little structural difference between carrier phrases and entity names. In this work, we describe how we leveraged multi-armed bandits in combination with implicit customer feedback to improve accuracy and personalization of responses to voice request in the music domain. Our models are tested in a large-scale industrial system containing several other components. In particular, we focused on using this technology to correct errors made by upstream NLU models and personalize responses based on customer preferences and music provider functionality. The models resulted in significant improvement of playback rate for Amazon Music and are deployed in systems serving several countries and languages. We further used the implicit feedback of the customers to generate weakly labeled training data for the NLU models. This improved the experience for customers using other music providers on all Alexa devices.},
+booktitle = {Proceedings of the 29th ACM International Conference on Information \& Knowledge Management},
+pages = {2661–2668},
+numpages = {8},
+keywords = {multi-armed bandits, music, natural language understanding, personalization},
+location = {Virtual Event, Ireland},
+series = {CIKM '20}
+}
+
+@inproceedings{zhang-bytedance-2019,
+author = {Zhang, Xiaoying and Xie, Hong and Li, Hang and C.S. Lui, John},
+title = {Conversational Contextual Bandit: Algorithm and Application},
+year = {2020},
+isbn = {9781450370233},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3366423.3380148},
+doi = {10.1145/3366423.3380148},
+abstract = {Contextual bandit algorithms provide principled online learning solutions to balance the exploitation-exploration trade-off in various applications such as recommender systems. However, the learning speed of the traditional contextual bandit algorithms is often slow due to the need for extensive exploration. This poses a critical issue in applications like recommender systems, since users may need to provide feedbacks on a lot of uninterested items. To accelerate the learning speed, we generalize contextual bandit to conversational contextual bandit. Conversational contextual bandit leverages not only behavioral feedbacks on arms (e.g., articles in news recommendation), but also occasional conversational feedbacks on key-terms from the user. Here, a key-term can relate to a subset of arms, for example, a category of articles in news recommendation. We then design the Conversational UCB algorithm (ConUCB) to address two challenges in conversational contextual bandit: (1) which key-terms to select to conduct conversation, (2) how to leverage conversational feedbacks to accelerate the speed of bandit learning. We theoretically prove that ConUCB can achieve a smaller regret upper bound than the traditional contextual bandit algorithm LinUCB, which implies a faster learning speed. Experiments on synthetic data, as well as real datasets from Yelp and Toutiao, demonstrate the efficacy of the ConUCB algorithm.},
+booktitle = {Proceedings of The Web Conference 2020},
+pages = {662–672},
+numpages = {11},
+location = {Taipei, Taiwan},
+series = {WWW '20}
+}
+
+@misc{
+banditbench-nie2025evolve,
+title={Evolve: Evaluating and Optimizing {LLM}s For Exploration},
+author={Allen Nie and Yi Su and Bo Chang and Jonathan Lee and Ed H. Chi and Quoc V Le and Minmin Chen},
+year={2025},
+url={https://openreview.net/forum?id=0Fi3u4RCyU}
+}
+
+@misc{
+kiyohara2025prompt,
+title={Prompt Optimization with Logged Bandit Data},
+author={Haruka Kiyohara and Daniel Yiming Cao and Yuta Saito and Thorsten Joachims},
+year={2025},
+url={https://openreview.net/forum?id=1upXwlEW8y}
+}
+
+@inproceedings{alamdari-etal-2024-jump,
+    title = "Jump Starting Bandits with {LLM}-Generated Prior Knowledge",
+    author = "Alamdari, Parand A.  and
+      Cao, Yanshuai  and
+      Wilson, Kevin H.",
+    editor = "Al-Onaizan, Yaser  and
+      Bansal, Mohit  and
+      Chen, Yun-Nung",
+    booktitle = "Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing",
+    month = nov,
+    year = "2024",
+    address = "Miami, Florida, USA",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2024.emnlp-main.1107/",
+    doi = "10.18653/v1/2024.emnlp-main.1107",
+    pages = "19821--19833",
+    abstract = "We present substantial evidence demonstrating the benefits of integrating Large Language Models (LLMs) with a Contextual Multi-Armed Bandit framework. Contextual bandits have been widely used in recommendation systems to generate personalized suggestions based on user-specific contexts. We show that LLMs, pre-trained on extensive corpora rich in human knowledge and preferences, can simulate human behaviours well enough to jump-start contextual multi-armed bandits to reduce online learning regret. We propose an initialization algorithm for contextual bandits by prompting LLMs to produce a pre-training dataset of approximate human preferences for the bandit. This significantly reduces online learning regret and data-gathering costs for training such models. Our approach is validated empirically through two sets of experiments with different bandit setups: one which utilizes LLMs to serve as an oracle and a real-world experiment utilizing data from a conjoint survey experiment."
+}
+
+@article{tang2024adaptingnonstationaryenvironmentsmultiarmed,
+      title={Adapting to Non-Stationary Environments: Multi-Armed Bandit Enhanced Retrieval-Augmented Generation on Knowledge Graphs}, 
+      author={Xiaqiang Tang and Jian Li and Nan Du and Sihong Xie},
+      year={2024},
+      eprint={2412.07618},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2412.07618}, 
+}
+
+@inproceedings{
+zhang2025harnessing,
+title={Harnessing Diversity for Important Data Selection in Pretraining Large Language Models},
+author={Chi Zhang and Huaping Zhong and Kuan Zhang and Chengliang Chai and Rui Wang and Xinlin Zhuang and Tianyi Bai and Qiu Jiantao and Lei Cao and Ju Fan and Ye Yuan and Guoren Wang and Conghui He},
+booktitle={The Thirteenth International Conference on Learning Representations},
+year={2025},
+url={https://openreview.net/forum?id=bMC1t7eLRc}
+}
+
+@misc{sun2025largelanguagemodelenhancedmultiarmed,
+      title={Large Language Model-Enhanced Multi-Armed Bandits}, 
+      author={Jiahang Sun and Zhiyong Wang and Runhan Yang and Chenjun Xiao and John C. S. Lui and Zhongxiang Dai},
+      year={2025},
+      eprint={2502.01118},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2502.01118}, 
+}
+
+@inproceedings{bandits-dont-follow-rules-kreutzer-etal-2021,
+    title = "Bandits Don`t Follow Rules: Balancing Multi-Facet Machine Translation with Multi-Armed Bandits",
+    author = "Kreutzer, Julia  and
+      Vilar, David  and
+      Sokolov, Artem",
+    editor = "Moens, Marie-Francine  and
+      Huang, Xuanjing  and
+      Specia, Lucia  and
+      Yih, Scott Wen-tau",
+    booktitle = "Findings of the Association for Computational Linguistics: EMNLP 2021",
+    month = nov,
+    year = "2021",
+    address = "Punta Cana, Dominican Republic",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2021.findings-emnlp.274/",
+    doi = "10.18653/v1/2021.findings-emnlp.274",
+    pages = "3190--3204",
+    abstract = "Training data for machine translation (MT) is often sourced from a multitude of large corpora that are multi-faceted in nature, e.g. containing contents from multiple domains or different levels of quality or complexity. Naturally, these facets do not occur with equal frequency, nor are they equally important for the test scenario at hand. In this work, we propose to optimize this balance jointly with MT model parameters to relieve system developers from manual schedule design. A multi-armed bandit is trained to dynamically choose between facets in a way that is most beneficial for the MT system. We evaluate it on three different multi-facet applications: balancing translationese and natural training data, or data from multiple domains or multiple language pairs. We find that bandit learning leads to competitive MT systems across tasks, and our analysis provides insights into its learned strategies and the underlying data sets."
+}
+
+@inproceedings{customized-nonlinear-bandits-liu-2018,
+author = {Liu, Bing and Yu, Tong and Lane, Ian and Mengshoel, Ole J.},
+title = {Customized nonlinear bandits for online response selection in neural conversation models},
+year = {2018},
+isbn = {978-1-57735-800-8},
+publisher = {AAAI Press},
+abstract = {Dialog response selection is an important step towards natural response generation in conversational agents. Existing work on neural conversational models mainly focuses on offline supervised learning using a large set of context-response pairs. In this paper, we focus on online learning of response selection in retrieval-based dialog systems. We propose a contextual multi-armed bandit model with a nonlinear reward function that uses distributed representation of text for online response selection. A bidirectional LSTM is used to produce the distributed representations of dialog context and responses, which serve as the input to a contextual bandit. In learning the bandit, we propose a customized Thompson sampling method that is applied to a polynomial feature space in approximating the reward. Experimental results on the Ubuntu Dialogue Corpus demonstrate significant performance gains of the proposed method over conventional linear contextual bandits. Moreover, we report encouraging response selection performance of the proposed neural bandit model using the Recall@k metric for a small set of online training samples.},
+booktitle = {Proceedings of the Thirty-Second AAAI Conference on Artificial Intelligence and Thirtieth Innovative Applications of Artificial Intelligence Conference and Eighth AAAI Symposium on Educational Advances in Artificial Intelligence},
+articleno = {643},
+url={https://cdn.aaai.org/ojs/12028/12028-13-15556-1-2-20201228.pdf},
+numpages = {8},
+location = {New Orleans, Louisiana, USA},
+series = {AAAI'18/IAAI'18/EAAI'18}
+}
+
+@misc{
+perez2018contextual,
+title={Contextual memory bandit for pro-active dialog engagement},
+author={Julien Perez and Tomi Silander},
+year={2018},
+url={https://openreview.net/forum?id=SJiHOSeR-},
+}
+
+@misc{upadhyay2019banditapproachposteriordialog,
+      title={A Bandit Approach to Posterior Dialog Orchestration Under a Budget}, 
+      author={Sohini Upadhyay and Mayank Agarwal and Djallel Bounneffouf and Yasaman Khazaeni},
+      year={2019},
+      eprint={1906.09384},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/1906.09384}, 
+}
+
+@inproceedings{falke-lehnen-2021-feedback,
+    title = "Feedback Attribution for Counterfactual Bandit Learning in Multi-Domain Spoken Language Understanding",
+    author = "Falke, Tobias  and
+      Lehnen, Patrick",
+    editor = "Moens, Marie-Francine  and
+      Huang, Xuanjing  and
+      Specia, Lucia  and
+      Yih, Scott Wen-tau",
+    booktitle = "Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing",
+    month = nov,
+    year = "2021",
+    address = "Online and Punta Cana, Dominican Republic",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2021.emnlp-main.91/",
+    doi = "10.18653/v1/2021.emnlp-main.91",
+    pages = "1190--1198",
+    abstract = "With counterfactual bandit learning, models can be trained based on positive and negative feedback received for historical predictions, with no labeled data needed. Such feedback is often available in real-world dialog systems, however, the modularized architecture commonly used in large-scale systems prevents the direct application of such algorithms. In this paper, we study the feedback attribution problem that arises when using counterfactual bandit learning for multi-domain spoken language understanding. We introduce an experimental setup to simulate the problem on small-scale public datasets, propose attribution methods inspired by multi-agent reinforcement learning and evaluate them against multiple baselines. We find that while directly using overall feedback leads to disastrous performance, our proposed attribution methods can allow training competitive models from user feedback."
+}
+
+@misc{zhang2023multiactiondialogpolicylearning,
+      title={Multi-Action Dialog Policy Learning from Logged User Feedback}, 
+      author={Shuo Zhang and Junzhou Zhao and Pinghui Wang and Tianxiang Wang and Zi Liang and Jing Tao and Yi Huang and Junlan Feng},
+      year={2023},
+      eprint={2302.13505},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2302.13505}, 
+}
+
+@article{Losada2017,
+title = {Multi-armed bandits for adjudicating documents in pooling-based evaluation of information retrieval systems},
+journal = {Information Processing & Management},
+volume = {53},
+number = {5},
+pages = {1005-1025},
+year = {2017},
+issn = {0306-4573},
+doi = {https://doi.org/10.1016/j.ipm.2017.04.005},
+url = {https://www.sciencedirect.com/science/article/pii/S0306457316305660},
+author = {David E. Losada and Javier Parapar and Alvaro Barreiro},
+keywords = {Information retrieval, Evaluation, Pooling, Reinforcement learning, Multi-armed bandits},
+abstract = {Evaluating Information Retrieval systems is crucial to making progress in search technologies. Evaluation is often based on assembling reference collections consisting of documents, queries and relevance judgments done by humans. In large-scale environments, exhaustively judging relevance becomes infeasible. Instead, only a pool of documents is judged for relevance. By selectively choosing documents from the pool we can optimize the number of judgments required to identify a given number of relevant documents. We argue that this iterative selection process can be naturally modeled as a reinforcement learning problem and propose innovative and formal adjudication methods based on multi-armed bandits. Casting document judging as a multi-armed bandit problem is not only theoretically appealing, but also leads to highly effective adjudication methods. Under this bandit allocation framework, we consider stationary and non-stationary models and propose seven new document adjudication methods (five stationary methods and two non-stationary variants). Our paper also reports a series of experiments performed to thoroughly compare our new methods against current adjudication methods. This comparative study includes existing methods designed for pooling-based evaluation and existing methods designed for metasearch. Our experiments show that our theoretically grounded adjudication methods can substantially minimize the assessment effort.}
+}
+
+@inproceedings{BoneffoufIRBandits2013,
+author = {Bouneffouf, Djallel and Bouzeghoub, Amel and Gançarski, Alda},
+year = {2013},
+month = {01},
+pages = {35-42},
+title = {Contextual Bandits for Context-Based Information Retrieval},
+volume = {8227},
+isbn = {978-3-642-42041-2},
+doi = {10.1007/978-3-642-42042-9_5}
+}
+
+@article{HofmannIRBandits2011,
+author = {Hofmann, Katja and Whiteson, Shimon and Rijke, M.},
+year = {2011},
+month = {01},
+pages = {},
+title = {Contextual Bandits for Information Retrieval},
+journal = {Journal of Theoretical Biology - J THEOR BIOL}
+}
+
+@inproceedings{hancock-etal-2019-learning,
+    title = "Learning from Dialogue after Deployment: Feed Yourself, Chatbot!",
+    author = "Hancock, Braden  and
+      Bordes, Antoine  and
+      Mazare, Pierre-Emmanuel  and
+      Weston, Jason",
+    editor = "Korhonen, Anna  and
+      Traum, David  and
+      M{\`a}rquez, Llu{\'i}s",
+    booktitle = "Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics",
+    month = jul,
+    year = "2019",
+    address = "Florence, Italy",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/P19-1358/",
+    doi = "10.18653/v1/P19-1358",
+    pages = "3667--3684",
+    abstract = "The majority of conversations a dialogue agent sees over its lifetime occur after it has already been trained and deployed, leaving a vast store of potential training signal untapped. In this work, we propose the self-feeding chatbot, a dialogue agent with the ability to extract new training examples from the conversations it participates in. As our agent engages in conversation, it also estimates user satisfaction in its responses. When the conversation appears to be going well, the user`s responses become new training examples to imitate. When the agent believes it has made a mistake, it asks for feedback; learning to predict the feedback that will be given improves the chatbot`s dialogue abilities further. On the PersonaChat chit-chat dataset with over 131k training examples, we find that learning from dialogue with a self-feeding chatbot significantly improves performance, regardless of the amount of traditional supervision."
+}
+
+@inproceedings{gao-etal-2022-simulating,
+    title = "Simulating Bandit Learning from User Feedback for Extractive Question Answering",
+    author = "Gao, Ge  and
+      Choi, Eunsol  and
+      Artzi, Yoav",
+    editor = "Muresan, Smaranda  and
+      Nakov, Preslav  and
+      Villavicencio, Aline",
+    booktitle = "Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+    month = may,
+    year = "2022",
+    address = "Dublin, Ireland",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2022.acl-long.355/",
+    doi = "10.18653/v1/2022.acl-long.355",
+    pages = "5167--5179",
+    abstract = "We study learning from user feedback for extractive question answering by simulating feedback using supervised data. We cast the problem as contextual bandit learning, and analyze the characteristics of several learning scenarios with focus on reducing data annotation. We show that systems initially trained on few examples can dramatically improve given feedback from users on model-predicted answers, and that one can use existing datasets to deploy systems in new domains without any annotation effort, but instead improving the system on-the-fly via user feedback."
+}
+
+@inproceedings{dong-etal-2018-banditsum,
+    title = "{B}andit{S}um: Extractive Summarization as a Contextual Bandit",
+    author = "Dong, Yue  and
+      Shen, Yikang  and
+      Crawford, Eric  and
+      van Hoof, Herke  and
+      Cheung, Jackie Chi Kit",
+    editor = "Riloff, Ellen  and
+      Chiang, David  and
+      Hockenmaier, Julia  and
+      Tsujii, Jun{'}ichi",
+    booktitle = "Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing",
+    month = oct # "-" # nov,
+    year = "2018",
+    address = "Brussels, Belgium",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/D18-1409/",
+    doi = "10.18653/v1/D18-1409",
+    pages = "3739--3748",
+    abstract = "In this work, we propose a novel method for training neural networks to perform single-document extractive summarization without heuristically-generated extractive labels. We call our approach BanditSum as it treats extractive summarization as a contextual bandit (CB) problem, where the model receives a document to summarize (the context), and chooses a sequence of sentences to include in the summary (the action). A policy gradient reinforcement learning algorithm is used to train the model to select sequences of sentences that maximize ROUGE score. We perform a series of experiments demonstrating that BanditSum is able to achieve ROUGE scores that are better than or comparable to the state-of-the-art for extractive summarization, and converges using significantly fewer update steps than competing approaches. In addition, we show empirically that BanditSum performs significantly better than competing approaches when good summary sentences appear late in the source document."
+}
+
+@inproceedings{haffari-etal-2017-efficient,
+    title = "Efficient Benchmarking of {NLP} {API}s using Multi-armed Bandits",
+    author = "Haffari, Gholamreza  and
+      Tran, Tuan Dung  and
+      Carman, Mark",
+    editor = "Lapata, Mirella  and
+      Blunsom, Phil  and
+      Koller, Alexander",
+    booktitle = "Proceedings of the 15th Conference of the {E}uropean Chapter of the Association for Computational Linguistics: Volume 1, Long Papers",
+    month = apr,
+    year = "2017",
+    address = "Valencia, Spain",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/E17-1039/",
+    pages = "408--416",
+    abstract = "Comparing NLP systems to select the best one for a task of interest, such as named entity recognition, is critical for practitioners and researchers. A rigorous approach involves setting up a hypothesis testing scenario using the performance of the systems on query documents. However, often the hypothesis testing approach needs to send a lot of document queries to the systems, which can be problematic. In this paper, we present an effective alternative based on the multi-armed bandit (MAB). We propose a hierarchical generative model to represent the uncertainty in the performance measures of the competing systems, to be used by Thompson Sampling to solve the resulting MAB. Experimental results on both synthetic and real data show that our approach requires significantly fewer queries compared to the standard benchmarking technique to identify the best system according to F-measure."
+}
+
+@inproceedings{pasunuru-etal-2020-dorb,
+    title = "{DORB}: Dynamically Optimizing Multiple Rewards with Bandits",
+    author = "Pasunuru, Ramakanth  and
+      Guo, Han  and
+      Bansal, Mohit",
+    editor = "Webber, Bonnie  and
+      Cohn, Trevor  and
+      He, Yulan  and
+      Liu, Yang",
+    booktitle = "Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)",
+    month = nov,
+    year = "2020",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2020.emnlp-main.625/",
+    doi = "10.18653/v1/2020.emnlp-main.625",
+    pages = "7766--7780",
+    abstract = "Policy gradients-based reinforcement learning has proven to be a promising approach for directly optimizing non-differentiable evaluation metrics for language generation tasks. However, optimizing for a specific metric reward leads to improvements in mostly that metric only, suggesting that the model is gaming the formulation of that metric in a particular way without often achieving real qualitative improvements. Hence, it is more beneficial to make the model optimize multiple diverse metric rewards jointly. While appealing, this is challenging because one needs to manually decide the importance and scaling weights of these metric rewards. Further, it is important to consider using a dynamic combination and curriculum of metric rewards that flexibly changes over time. Considering the above aspects, in our work, we automate the optimization of multiple metric rewards simultaneously via a multi-armed bandit approach (DORB), where at each round, the bandit chooses which metric reward to optimize next, based on expected arm gains. We use the Exp3 algorithm for bandits and formulate two approaches for bandit rewards: (1) Single Multi-reward Bandit (SM-Bandit); (2) Hierarchical Multi-reward Bandit (HM-Bandit). We empirically show the effectiveness of our approaches via various automatic metrics and human evaluation on two important NLG tasks: question generation and data-to-text generation. Finally, we present interpretable analyses of the learned bandit curriculum over the optimized rewards."
+}
+
+@misc{bouneffouf2019surveypracticalapplicationsmultiarmed,
+      title={A Survey on Practical Applications of Multi-Armed and Contextual Bandits}, 
+      author={Djallel Bouneffouf and Irina Rish},
+      year={2019},
+      eprint={1904.10040},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/1904.10040}, 
+}
+
+@inproceedings{petrushkov-etal-2018-learning,
+    title = "Learning from Chunk-based Feedback in Neural Machine Translation",
+    author = "Petrushkov, Pavel  and
+      Khadivi, Shahram  and
+      Matusov, Evgeny",
+    editor = "Gurevych, Iryna  and
+      Miyao, Yusuke",
+    booktitle = "Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Volume 2: Short Papers)",
+    month = jul,
+    year = "2018",
+    address = "Melbourne, Australia",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/P18-2052/",
+    doi = "10.18653/v1/P18-2052",
+    pages = "326--331",
+    abstract = "We empirically investigate learning from partial feedback in neural machine translation (NMT), when partial feedback is collected by asking users to highlight a correct chunk of a translation. We propose a simple and effective way of utilizing such feedback in NMT training. We demonstrate how the common machine translation problem of domain mismatch between training and deployment can be reduced solely based on chunk-level user feedback. We conduct a series of simulation experiments to test the effectiveness of the proposed method. Our results show that chunk-level feedback outperforms sentence based feedback by up to 2.61{\%} BLEU absolute."
+}
+
+@misc{abensur2019productizationchallengescontextualmultiarmed,
+      title={Productization Challenges of Contextual Multi-Armed Bandits}, 
+      author={David Abensur and Ivan Balashov and Shaked Bar and Ronny Lempel and Nurit Moscovici and Ilan Orlov and Danny Rosenstein and Ido Tamir},
+      year={2019},
+      eprint={1907.04884},
+      archivePrefix={arXiv},
+      primaryClass={cs.IR},
+      url={https://arxiv.org/abs/1907.04884}, 
+}
+
+@misc{akker2023practicalbanditsindustryperspective,
+      title={Practical Bandits: An Industry Perspective}, 
+      author={Bram van den Akker and Olivier Jeunen and Ying Li and Ben London and Zahra Nazari and Devesh Parekh},
+      year={2023},
+      eprint={2302.01223},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2302.01223}, 
+}

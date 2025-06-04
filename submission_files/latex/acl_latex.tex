@@ -1,0 +1,284 @@
+% This must be in the first 5 lines to tell arXiv to use pdfLaTeX, which is strongly recommended.
+\pdfoutput=1
+% In particular, the hyperref package requires pdfLaTeX in order to break URLs across lines.
+
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{hyperref}
+
+% Change "review" to "final" to generate the final (sometimes called camera-ready) version.
+% Change to "preprint" to generate a non-anonymous version with page numbers.
+\usepackage[preprint]{acl}
+
+% Standard package includes
+\usepackage{times}
+\usepackage{latexsym}
+
+% For proper rendering and hyphenation of words containing Latin characters (including in bib files)
+\usepackage[T1]{fontenc}
+% For Vietnamese characters
+% \usepackage[T5]{fontenc}
+% See https://www.latex-project.org/help/documentation/encguide.pdf for other character sets
+
+% This assumes your files are encoded as UTF8
+\usepackage[utf8]{inputenc}
+
+% This is not strictly necessary, and may be commented out,
+% but it will improve the layout of the manuscript,
+% and will typically save some space.
+\usepackage{microtype}
+
+% This is also not strictly necessary, and may be commented out.
+% However, it will improve the aesthetics of text in
+% the typewriter font.
+\usepackage{inconsolata}
+
+%Including images in your LaTeX document requires adding
+%additional package(s)
+\usepackage{graphicx}
+
+% If the title and author information does not fit in the area allocated, uncomment the following
+%
+%\setlength\titlebox{<dim>}
+%
+% and set <dim> to something 5cm or larger.
+
+\title{A Survey on Use-Cases of Bandit Problems in Natural Language Processing}
+
+% Author information can be set in various styles:
+% For several authors from the same institution:
+% \author{Author 1 \and ... \and Author n \\
+%         Address line \\ ... \\ Address line}
+% if the names do not fit well on one line use
+%         Author 1 \\ {\bf Author 2} \\ ... \\ {\bf Author n} \\
+% For authors from different institutions:
+% \author{Author 1 \\ Address line \\  ... \\ Address line
+%         \And  ... \And
+%         Author n \\ Address line \\ ... \\ Address line}
+% To start a separate ``row'' of authors use \AND, as in
+% \author{Author 1 \\ Address line \\  ... \\ Address line
+%         \AND
+%         Author 2 \\ Address line \\ ... \\ Address line \And
+%         Author 3 \\ Address line \\ ... \\ Address line}
+
+\author{Arnav Gurudatt \\
+  University of California, Berkeley \\
+  \texttt{arnavgurudatt@berkeley.edu}}
+
+%\author{
+%  \textbf{First Author\textsuperscript{1}},
+%  \textbf{Second Author\textsuperscript{1,2}},
+%  \textbf{Third T. Author\textsuperscript{1}},
+%  \textbf{Fourth Author\textsuperscript{1}},
+%\\
+%  \textbf{Fifth Author\textsuperscript{1,2}},
+%  \textbf{Sixth Author\textsuperscript{1}},
+%  \textbf{Seventh Author\textsuperscript{1}},
+%  \textbf{Eighth Author \textsuperscript{1,2,3,4}},
+%\\
+%  \textbf{Ninth Author\textsuperscript{1}},
+%  \textbf{Tenth Author\textsuperscript{1}},
+%  \textbf{Eleventh E. Author\textsuperscript{1,2,3,4,5}},
+%  \textbf{Twelfth Author\textsuperscript{1}},
+%\\
+%  \textbf{Thirteenth Author\textsuperscript{3}},
+%  \textbf{Fourteenth F. Author\textsuperscript{2,4}},
+%  \textbf{Fifteenth Author\textsuperscript{1}},
+%  \textbf{Sixteenth Author\textsuperscript{1}},
+%\\
+%  \textbf{Seventeenth S. Author\textsuperscript{4,5}},
+%  \textbf{Eighteenth Author\textsuperscript{3,4}},
+%  \textbf{Nineteenth N. Author\textsuperscript{2,5}},
+%  \textbf{Twentieth Author\textsuperscript{1}}
+%\\
+%\\
+%  \textsuperscript{1}Affiliation 1,
+%  \textsuperscript{2}Affiliation 2,
+%  \textsuperscript{3}Affiliation 3,
+%  \textsuperscript{4}Affiliation 4,
+%  \textsuperscript{5}Affiliation 5
+%\\
+%  \small{
+%    \textbf{Correspondence:} \href{mailto:email@domain}{email@domain}
+%  }
+%}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+Multi-armed bandits have found use across various domains in sequential decision-making tasks, from assigning treatment arms in clinical trials to optimizing click-through rate at industry scale. This survey aims to evaluate the use-cases and effectiveness of bandit algorithms in natural language processing (NLP) settings, providing a unified compendium of existing frameworks and areas for further study. I motivate the use of bandits via structured prediction, where models receive partial, delayed, or implicit supervision from bandit feedback rather than full ground-truth labels. I examine use cases across a range of subfields including machine translation, dialog generation, question answering, and large language models. Through a synthesis of over 30 papers, I trace the historical development of bandit methods in NLP, outline key algorithmic frameworks, and identify emerging trends in both research and industry.
+\end{abstract}
+
+\section{Introduction}
+
+\subsection*{The Multi-Armed Bandit Problem}
+
+The multi-armed bandit problem in its simplest form, often called the stochastic bandit problem, models the fundamental tradeoff between exploration (gathering information about uncertain options) and exploitation (leveraging known information to maximize reward). A classic analogy is a gambler faced with various slot machines (or "arms") in a casino, each returning a random reward from an unknown probability distribution. The gambler’s goal is to identify the slot machine which gives the most lucrative reward while simultaneously being rewarded as they pull the levers of various slot machines.
+
+Formally, the problem consists of an agent faced with $K$ unknown probability distributions $\{D_1, D_2, \dots, D_K\}$, each with an expected reward $\mu_k = \mathbb{E}[r_k]$ and variance $\sigma_k^2$. At each round $t = 1, 2, \dots, T$, the agent selects an arm $j(t) \in \{1, \dots, K\}$ and receives a reward $r(t) \sim D_{j(t)}$. The agent aims to maximize the total reward over $T$ rounds, ideally by identifying the optimal arm $k^* = \arg\max_k \mu_k$.
+
+A key performance metric is the cumulative (expected) regret $R_T$, which quantifies the difference between the reward the agent would have earned by always pulling the optimal arm, and the reward actually received:
+
+$$
+R_T = T\mu^* - \sum_{t=1}^T \mu_{j(t)}
+$$
+
+where $\mu^* = \max_{k=1,\dots,K} \mu_k$ is the expected reward of the best arm.
+
+An equivalent expression using the expected number of times each arm $k$ is selected is:
+
+$$
+R_T = T\mu^* - \sum_{k=1}^K \mu_k \cdot \mathbb{E}[T_k(T)]
+$$
+
+where $T_k(T)$ denotes the (random) number of times arm $k$ is pulled in the first $T$ rounds.
+
+Bandit algorithms aim to minimize this regret $R_T$, ideally achieving sublinear growth $R_T = o(T)$, ensuring that the average regret per round vanishes as $T \to \infty$ \cite{KuleshovPrecup2000}.
+
+In addition to stochastic bandits, variants of the original bandit problem have emerged in different settings, extending the base assumptions to model different agentic environments. The most prominent of these variants is the \textit{contextual bandit} problem, which extend stochastic bandits by allowing the agent to observe side information (context) $x_t \in \mathcal{X}$ before selecting an arm. The expected reward depends on both the arm and the context:
+    $$
+    \mu_k(x_t) = \mathbb{E}[r_k(t) \mid x_t]
+    $$
+    The agent’s goal is to learn a policy $\pi: \mathcal{X} \rightarrow \{1, \dots, K\}$ that maps contexts to actions to maximize cumulative reward. Algorithms like \textsc{LinUCB} and contextual Thompson Sampling leverage structure in the context space (e.g., linear or neural models) to guide arm selection \cite{Lu2010}.
+
+\subsection*{Common Algorithms for Regret Minimization}
+
+Several standard algorithms have been developed to tackle the exploration-exploitation tradeoff and minimize regret in stochastic bandit settings. Some of the most common approaches include, but are not limited to:
+\begin{itemize}
+    \item \textbf{$\epsilon$-greedy}: At each time step, the agent chooses a random arm with probability $\epsilon$ (exploration), and with probability $1 - \epsilon$, it chooses the arm with the highest empirical mean reward (exploitation).
+
+    \item \textbf{Upper Confidence Bound (UCB):} Selects the arm with the highest upper confidence bound on the estimated reward:
+    $$ 
+    j(t) = \arg\max_k \left( \hat{\mu}_k + \sqrt{\frac{2 \log t}{T_k(t)}} \right)
+    $$
+    where $\hat{\mu}_k$ is the empirical mean reward of arm $k$ and $T_k(t)$ is the number of times arm $k$ has been pulled up to time $t$ \cite{KuleshovPrecup2000}.
+
+    \item \textbf{Thompson Sampling:} A Bayesian algorithm that samples a reward estimate from the posterior distribution of each arm and selects the arm with the highest sampled value. For Bernoulli rewards with Beta priors:
+    $$
+    \theta_k \sim \text{Beta}(\alpha_k, \beta_k), \quad j(t) = \arg\max_k \theta_k
+    $$
+    Thompson Sampling achieves logarithmic expected regret in the stochastic setting. For the two-armed bandit case, the regret after $T$ rounds is:
+    $$
+    R_T = O\left( \frac{\log T}{\Delta} + \frac{1}{\Delta^3} \right)
+    $$
+    where $\Delta = \mu^* - \mu_{\text{next-best}}$ is the gap between the expected reward of the best arm and the second-best arm.
+    
+    More generally, for $K$ arms, the regret satisfies:
+    $$
+    R_T = O\left( \left( \sum_{i=2}^K \frac{1}{\Delta_i^2} \right) \log T \right)
+    $$
+    where $\Delta_i = \mu^* - \mu_i$ denotes the suboptimality gap for arm $i$ \cite{AgarwalGoyal2012}.
+    
+\end{itemize}
+
+\section{Historical Development}
+
+\subsection{Interactive Learning with Bandit Feedback (2016)}
+
+\citet{sokolov-etal-2016-learning} produced a seminal paper on the applications of bandits in training models for natural language tasks like machine translation; rather than train a language model on a supervised dataset containing ground-truth labels (e.g. correct gold-standard translations for a machine translation task), the model only gets feedback in the form of a loss value for its own prediction, such as a BLEU score or human rating. They describe this setting as a "bandit structured prediction," and it simulates realistic low-supervision environments, such as user feedback in production systems.
+
+They validate this structured prediction framework across three natural language tasks – machine translation, sequence labeling, and text classification – each of which traditionally relies on full supervision. In machine translation, their bandit-trained model achieved a BLEU score of 0.2763, nearly matching the supervised baseline (0.2841), while in chunking, the bandit model reached 0.923 F1 versus a 0.935 supervised score.
+
+\citeposs{sokolov-etal-2016-learning} paper was important within NLP literature for three reasons. First, it marked a shift in the supervision paradigm by laying the foundation for learning from partial, noisy, or implicit feedback (e.g. user clicks, time-spent metrics), thereby departing from the assumption that full ground-truth supervision is always available. Second, it modeled realistic human-in-the-loop feedback scenarios, such as BLEU-based or rating-based user feedback, which closely mirror the deployment conditions of NLP systems in production. Third, and most importantly, it helped bridge the methodological gap between NLP and bandits literature by applying bandit algorithms to common NLP tasks. By providing benchmark results across machine translation, sequence labeling, and classification, the paper catalyzed follow-up research in areas like summarization and dialogue modeling, helping shape research at the intersection of reinforcement learning and NLP.
+
+\subsection{Bandit Approaches for Neural Machine Translation (2017-18)}
+
+With the increased use of neural models for NLP tasks, especially with the advent of the transformer architecture \cite{vaswani2017}, bandits research in NLP began exploring where reinforcement learning could improve the performance of sequence-to-sequence models, particularly for machine translation. 
+
+\citet{kreutzer-etal-2017-bandit} were among the first to extend bandit structured prediction from \citet{sokolov-etal-2016-learning} to neural architectures by applying it to attention-based encoder-decoder models. Their work introduces variance-reduced stochastic learning algorithms for neural machine translation (NMT) using simulated partial feedback, such as sentence-level BLEU scores. In domain adaptation experiments, their model achieved BLEU improvements of up to 5.89 points over the out-of-domain baseline, showing that bandit learning with partial supervision could not only effectively fine-tune neural NMT systems, but also could scale to deep models and complex output spaces.
+
+Earlier literature on NMT utilized \textit{simulated} user feedback in bandit settings to overcome the limitations of requiring full supervision. \citet{nguyen-etal-2017-reinforcement} modeled NMT as a reinforcement learning problem using an advantage actor-critic (A2C) algorithm, showing that models trained on noisy, high-variance reward signals could still achieve stable learning. Building on this, \citet{kreutzer-etal-2018-reliability} compared different forms of simulated human feedback, finding that standardized cardinal ratings yielded higher annotator agreement and enabled BLEU improvements of over 1 point using just 800 labeled examples.
+
+This trajectory culminated in \citet{kreutzer-etal-2018-neural}, which marked a transition from simulation to real-world deployment. Using data collected from users on the eBay platform, they analyzed both explicit user ratings and implicit task-based feedback (e.g., clicks in cross-lingual search). While the 5-star ratings were found to be too noisy for training, the implicit feedback was successfully used to improve downstream task relevance and translation quality. This work provided an early example of how neural bandit methods could be integrated into production systems, showing that human reinforcement signals in real-world settings could improve NLP tasks like NMT at scale.
+
+As MT systems moved toward deployment at scale, bandit algorithms proved useful not only for adapting models, but also for making decisions about which models or data to use. \citet{naradowsky-etal-2020-machine} proposed treating model selection itself as a bandit problem, where each "arm" corresponds to a pre-trained MT system with fixed parameters, with an agent that learns a selection policy from user feedback and dynamically chooses the best system for a given translation request. Similarly, data selection for model training can be framed as a bandit problem; since MT systems are trained on data from different domains, languages, levels of quality, and other "facets," \citet{bandits-dont-follow-rules-kreutzer-etal-2021} propose using dynamic sampling from diverse data sources to optimize model improvement, achieving up to 1.7 BLEU gain across various domain adaptation settings (e.g., selecting between natural vs. translated text, training multilingual models).
+
+\subsection{Industry Adoption (2019-2023)}
+
+The shift from simulation-focused study of bandit feedback in NLP systems to viable, real-world use cases prompted broader industry adoption of bandit algorithms, not just for machine translation like in previous literature, but also for better recommender systems and natural language understanding (NLU) in Automated Speech Recognition (ASR).
+
+In particular, bandit algorithms found large success in recommender systems, where they enable personalization through efficient exploration under limited user feedback. ByteDance introduced \textit{conversational contextual bandits}, which enhance exploration by allowing the system to query user preferences on key-terms that influence many items, accelerating learning and reducing cumulative regret across large-scale, real-world recommendation datasets like Yelp (restaurants) and Toutiao (news) \cite{zhang-bytedance-2019}. Meta extended this idea with \textit{Epistemic Neural Recommendation (ENR)}, a neural contextual bandit framework that combines Thompson Sampling with epistemic uncertainty estimation to deliver personalized recommendations from sparse interactions \cite{meta-recommender-bandits}. ENR achieved up to 9\% higher click-through rates and required 29\% fewer interactions compared to prior neural bandit methods. Together, these approaches show how bandits can scale exploration and personalization in industrial recommender systems with minimal supervision.
+
+Amazon scientists also explored use cases of multi-armed bandits for personalized NLU models on their voice-controlled devices like Amazon Echo, particularly in music playback requests \cite{Amazon-Moerchen2020}. In this setting, upstream NLU models produce multiple candidate interpretations of a voice query, and a contextual bandit model is used to re-rank these candidates using implicit feedback (specifically, whether the selected interpretation led to music being played for at least $K$ seconds). Using Thompson Sampling, the model learns to personalize and correct interpretation errors by incorporating features such as customer-artist affinity and entity popularity. During A/B testing, this approach increased playback rate by up to 0.41\% in the UK and 0.37\% in the US, making it one of the most impactful improvements to Amazon Music’s voice experience that year.
+
+\subsection{Bandits and Large Language Models (2023-present)}
+
+With Large Language Models (LLMs) increasingly at the forefront of both NLP research and industry scale alike, recent research has sought to examine how bandit algorithms can improve LLM performance on specific tasks across various stages of the modeling pipeline, including prompt optimization, data selection, and retrieval.
+
+In prompt-based learning, both \citet{kiyohara2025prompt} and Google DeepMind's BanditBench paper \cite{banditbench-nie2025evolve} frame LLM behavior as a contextual bandit problem, optimizing output quality using only logged user feedback. These approaches avoid costly online interaction by either learning from generated responses (as in Direct Sentence Off-policy Gradient) or simulating bandit environments to benchmark in-context learning. Meanwhile, other work has adapted bandits to enhance retrieval-augmented generation (RAG) over knowledge graphs (KGs), where each retrieval method (e.g., dense retriever, SPARQL query generator, or LLM-based KG agent) is treated as an arm, and the system adaptively selects the best one for each query using real-time user feedback \cite{tang2024adaptingnonstationaryenvironmentsmultiarmed}. Bandits have further been used to improve pretraining efficiency through data selection strategies that balance data quality, diversity, and influence in training corpora, where each data cluster is an arm receiving feedback from each cluster's "influence score," or impact on the model's performance \citep{zhang2025harnessing}. Together, these papers show that bandits offer a scalable framework for guiding LLM learning when supervision is partial, delayed, or expensive to collect.
+
+While the discussion of bandits and LLMs has thus far focused on bandits improving LLM performance, another branch of literature flips this relationship, examining how LLMs can enhance bandit algorithms in various sequential decision-making settings. \citet{alamdari-etal-2024-jump} and \citet{sun2025largelanguagemodelenhancedmultiarmed} show that LLMs can simulate user preferences or serve as reward predictors to accelerate learning in contextual and dueling bandit settings. These methods avoid cold-start issues and reduce regret by leveraging the generalization capabilities of LLMs to warm-start bandit policies or predict outcomes across high-dimensional action spaces.
+
+\section{Applications by NLP Subfield}
+
+Historical development of bandit frameworks for NLP have seen substantial success in tasks such as machine translation, recommender systems that utilize natural language input, and LLM output generation. In this section, I aim to explore specific subfields of NLP that have benefited from the use of bandit algorithms as a way of augmenting the performance of NLP systems.
+
+\subsection{Dialog Generation}
+
+An NLP task that fairly naturally lends itself to extensions of the bandit problem is dialog generation. In particular, contextual bandits have been previously used in dialog generation literature to guide response selection based on the current conversation state while learning from partial feedback. Since contextual bandits leverage side information (i.e., context) to make decisions with only limited feedback, they are well-suited for dialog generation tasks where models must adaptively select or generate responses based on conversational history, user preferences, and sparse or implicit user feedback. This setting matches the typical interaction loop in dialog systems: observe the current context, select a response (or action), and learn from user behavior (e.g., clicks, replies, or ratings) without observing feedback on unchosen responses.
+
+Many systems leverage contextual bandits to dynamically select responses or dialog skills based on conversational context, user signals, and long-term utility, enabling models to operate effectively without access to full supervision \cite{upadhyay2019banditapproachposteriordialog}. In particular, they have been used to guide online response selection in retrieval-based systems, where the model encodes the conversational context and candidate replies using neural models (e.g., LSTMs or RNNs), and uses Thompson Sampling to select the most appropriate response \cite{customized-nonlinear-bandits-liu-2018}. Beyond reactive dialog, bandit-based approaches have also been used to enable proactive or self-improving systems that learn from ongoing user interactions; by incorporating memory or post-deployment feedback signals, these systems can continually refine their policies based on implicit or explicit rewards without retraining from scratch \citep{perez2018contextual, hancock-etal-2019-learning}.
+
+In addition to contextual bandits, \textit{counterfactual} bandits have proven effective for training dialog systems from limited feedback by attributing observed outcomes to specific model components. Both in modular spoken language understanding (SLU) systems and multi-action dialog policy learning, counterfactual bandits enable learning from system-level or logged user feedback by estimating which parts of the model contributed to the outcome. \citet{falke-lehnen-2021-feedback} use attribution methods from multi-agent reinforcement learning to assign credit to SLU submodules like domain classification and slot filling, while \citet{zhang2023multiactiondialogpolicylearning} introduce BanditMatch, which combines pseudo-labeling and off-policy estimation to train dialog policies from real-world feedback signals. Across SLU benchmarks like SNIPS and TOP and dialog datasets like MultiWOZ, both approaches demonstrate strong performance, matching or surpassing supervised baselines under partial feedback.
+
+% \subsection{Information Retrieval}
+
+% Information retrieval (IR) is yet another subfield that has benefited from bandit algorithms, and one of the earlier fields within NLP to adopt bandits given their usefulness in scenarios that involve online learning to rank, adaptive relevance feedback, and context-aware search. In particular, contextual bandits allow retrieval systems to adapt their document rankings dynamically based on real-time user interactions, even in the absence of full supervision or labeled training data.
+
+% Microsoft researchers were among the first to explicitly model online learning to rank in IR as a contextual bandit problem \cite{HofmannIRBandits2011}. They developed an algorithm that interleaves exploratory and exploitative documents in result lists based on an exploration rate parameter and showed this strategy improves cumulative reward across TREC datasets. Building on this, \citet{BoneffoufIRBandits2013} applied contextual bandits to context-based information retrieval (CBIR) by introducing CBIR-$\epsilon$-greedy, which dynamically adjusts exploration based on the user’s situation (e.g., professional meeting vs. casual browsing). Their experiments with mobile users demonstrated superior performance over standard baselines. Finally, \citet{Losada2017} introduced a reinforcement learning-based framework to adjudicate document relevance in pooling-based evaluation. They proposed several stationary and non-stationary bandit algorithms that substantially reduced assessment effort while maintaining evaluation accuracy.
+
+\subsection{Question Answering}
+
+Recent developments in question answering (QA) have combined user interaction patterns seen in dialog generation with information retrieval from large corpora, creating opportunities for bandit algorithms to improve answer selection from sparse feedback. \citet{gao-etal-2022-simulating} formulate extractive QA as a contextual bandit problem, where the system proposes an answer span and learns from binary user feedback indicating correctness. To study this setting without requiring expensive real-time annotation, they introduce a simulation framework using SQuAD and Natural Questions to generate realistic user responses. Their experiments show that even simple bandit algorithms can outperform supervised learning when feedback is sparse or noisy, and that offline bandit learning achieves up to 2.4\% F1 improvement in domain transfer settings.
+
+\subsection{Document Summarization}
+
+\citet{dong-etal-2018-banditsum} extend the contextual bandit problem to extractive document summarization, using the document itself as the context for the bandit algorithm and the selected set of sentences as the action. Rather than treating summarization as a sequential labeling or reinforcement learning task, their approach, BanditSum, models sentence selection as a one-shot decision, optimizing sentence subsets based on expected ROUGE scores using policy gradient methods. This allows the model to learn directly from summary-level feedback without needing extractive sentence-level labels or assuming strong sequential dependencies. On the CNN/Daily Mail benchmark, BanditSum achieves competitive ROUGE scores while mitigating early-sentence bias and converging faster than traditional reinforcement learning approaches.
+
+\subsection{Model Selection, Training, and Evaluation}
+
+Beyond augmenting domain-specific NLP tasks, bandit algorithms have increasingly been used to improve the model development pipeline itself, spanning from training data selection and hyperparameter tuning to reward optimization and evaluation. \citet{urteaga-etal-2023-multi} frame language model pretraining as an online optimization problem, applying Thompson Sampling to dynamically select optimal hyperparameter configurations, such as dropout and masking strategies, during training, reducing computational waste caused by more classic grid-search approaches and improving perplexity across resource-constrained settings. For tasks like text generation, where optimizing against a single reward metric (e.g., BLEU or ROUGE) can lead to overfitting, \citet{pasunuru-etal-2020-dorb} introduce DORB, a multi-armed bandit framework that dynamically selects which evaluation metric to optimize at each training step using \textsc{Exp3}, yielding stronger generalization across multiple tasks and metrics. Finally, bandits can assist with benchmarking itself: \citet{haffari-etal-2017-efficient} propose a method for selecting the best NLP system using Thompson Sampling, reducing the number of API calls required to statistically identify the top-performing model on tasks like NER, thereby minimizing cost in evaluation scenarios. Collectively, these approaches demonstrate the value of bandits not just for improving model behavior, but for making the overall modeling process more data-efficient, interpretable, and cost-effective.
+
+Broadly, the use of bandits in what \citet{bouneffouf2019surveypracticalapplicationsmultiarmed} call "Better Machine Learning" reflects a broader trend toward optimizing meta-level decisions in the ML pipeline. Bandit algorithms have been successfully applied to algorithm selection, hyperparameter tuning, and feature selection, all of which are key tasks that benefit from adaptive decision-making under uncertainty. For instance, \citet{bouneffouf2019surveypracticalapplicationsmultiarmed} highlight how bandits can dynamically choose among competing classification algorithms based on feedback, or iteratively select the most informative features to reduce dimensionality while preserving performance. Outside NLP, they also describe applications in areas such as anomaly detection in cloud security, energy usage prediction in smart grids, and optimizing financial trading strategies. These examples, while not specific to NLP, demonstrate the extensibility of bandit-based decision frameworks to a wide range of machine learning tasks, many of which could intersect with or inform future NLP research, especially in domains where data collection is expensive or real-time feedback is noisy and sparse.
+
+\section{Limitations}
+
+One limitation across early bandit learning papers in NLP is that the empirical gains over strong baselines are often marginal. For instance, in the multi-reward question generation task, \citet{pasunuru-etal-2020-dorb} report that their SM-Bandit model improves BLEU-4 from 18.36 to only 18.68, with similarly modest gains in METEOR (+0.33), ROUGE-L (+0.05), and QAP (+0.41). On the WebNLG dataset, their HM-Bandit achieves BLEU of 63.38 compared to 63.00 for the baseline, and improves ROUGE-L by just 0.10 points. A similar pattern appears in \citet{kreutzer-etal-2017-bandit}, where their bandit-based NMT model achieves up to 5.89 BLEU improvement in domain adaptation, but this is measured relative to an out-of-domain baseline rather than an in-domain supervised model, which remains the stronger benchmark in practice.
+
+Moreover, many of these evaluations rely on \textit{simulated} bandit feedback for computed metrics like sentence-level BLEU or gGLEU, which do not fully capture the challenges of noisy or delayed real-world user responses. For example, even seminal papers like \citet{sokolov-etal-2016-learning}, \citet{kreutzer-etal-2017-bandit}, and \citet{kreutzer-etal-2018-reliability} evaluate models using synthetic BLEU-based rewards, and even studies that incorporate human feedback (e.g., \citet{kreutzer-etal-2018-neural}) often highlight its noisiness and inconsistency. While simulation is necessary for reproducibility, it raises questions about the ecological validity of the results, particularly when feedback assumptions (e.g., stability, reward variance) are unlikely to hold in production.
+
+A particularly strong limitation of prior work is its dependence on online feedback, where rewards must be generated during training. \citet{petrushkov-etal-2018-learning} identify this constraint and propose a chunk-based feedback approach that allows learning from delayed or logged feedback. Although not a bandit algorithm per se, their method circumvents a major barrier to bandit learning in real-world deployments by allowing feedback to be collected asynchronously, thereby increasing flexibility in user-facing NLP systems.
+
+Lastly, bandits in the NLP setting face the same challenges as multi-armed bandits do more generally in production environments. These include difficulties in defining good reward proxies, high implementation complexity, safety constraints around exploration, cold-start issues, and the challenge of ensuring consistent long-term evaluation \citep{abensur2019productizationchallengescontextualmultiarmed, akker2023practicalbanditsindustryperspective}. As \citet{akker2023practicalbanditsindustryperspective} note, even simple decisions like offline policy evaluation versus online deployment can significantly affect performance and feasibility. As a result, while bandit methods offer a compelling theoretical framework, practical limitations remain a major barrier to their widespread adoption in high-stakes, production-grade NLP systems.
+
+
+
+% Custom bibliography entries only
+\bibliography{latex/acl_latex}
+
+% \subsection*{Variants of the Multi-Armed Bandit Problem}
+
+% In addition to stochastic bandits, variants of the original bandit problem have emerged in different settings, extending the base assumptions to model different agentic environments:
+
+% \begin{itemize}
+%     \item \textbf{Adversarial Bandits:} In the adversarial setting, reward sequences for each arm are generated by an adversary, possibly with knowledge of the agent’s strategy. No assumptions are made about the stochasticity or stationarity of rewards. The agent aims to minimize \textit{regret} against the best fixed arm in hindsight:
+%     $$
+%     R_T = \max_{k} \sum_{t=1}^T r_k(t) - \sum_{t=1}^T r_{j(t)}(t)
+%     $$
+%     where $r_k(t)$ is the reward of arm $k$ at time $t$, and $j(t)$ is the arm selected. Algorithms such as \textsc{Exp3} are designed to ensure sublinear regret even under worst-case reward sequences \cite{Auer2002}.
+%     \item \textbf{Contextual Bandits:} Contextual bandits extend stochastic bandits by allowing the agent to observe side information (context) $x_t \in \mathcal{X}$ before selecting an arm. The expected reward depends on both the arm and the context:
+%     $$
+%     \mu_k(x_t) = \mathbb{E}[r_k(t) \mid x_t]
+%     $$
+%     The agent’s goal is to learn a policy $\pi: \mathcal{X} \rightarrow \{1, \dots, K\}$ that maps contexts to actions to maximize cumulative reward. Algorithms like \textsc{LinUCB} and contextual Thompson Sampling leverage structure in the context space (e.g., linear or neural models) to guide arm selection \cite{Lu2010}.
+%     \item \textbf{Causal Contextual Bandits:} This recent variant augments the contextual bandit setting with a causal model that relates actions, contexts, and outcomes. The agent can reason about counterfactuals, asking: "What would the reward have been had I taken a different action?" At each round, the learner selects an initial intervention $a_0 \in \mathcal{A}_0$, which probabilistically leads to a new context $i \in [k]$ via transition probability $P\{i \mid a_0\}$. In context $i$, the learner selects a second intervention $a_i \in \mathcal{A}_i$, receiving reward $R_i \in \{0,1\}$. The expected reward under policy $\pi$ is:
+%     $$
+%     \mu(\pi) = \sum_{i=1}^k \mathbb{E}[R_i \mid \pi(i)] \cdot P\{i \mid \pi(0)\}
+%     $$
+    
+%     The learner aims to maximize $\mu(\pi)$ and minimize simple regret. Recent literature introduces \textsc{ConvExplore}, an algorithm with instance-dependent regret bounds that leverage the causal structure for efficient exploration \cite{Madhavan2024}.
+
+% \end{itemize}
+
+\end{document}

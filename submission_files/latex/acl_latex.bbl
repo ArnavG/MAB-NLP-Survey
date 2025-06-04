@@ -1,0 +1,175 @@
+\begin{thebibliography}{35}
+\providecommand{\natexlab}[1]{#1}
+
+\bibitem[{Abensur et~al.(2019)Abensur, Balashov, Bar, Lempel, Moscovici, Orlov, Rosenstein, and Tamir}]{abensur2019productizationchallengescontextualmultiarmed}
+David Abensur, Ivan Balashov, Shaked Bar, Ronny Lempel, Nurit Moscovici, Ilan Orlov, Danny Rosenstein, and Ido Tamir. 2019.
+\newblock \href {https://arxiv.org/abs/1907.04884} {Productization challenges of contextual multi-armed bandits}.
+\newblock \emph{Preprint}, arXiv:1907.04884.
+
+\bibitem[{Agrawal and Goyal(2012)}]{AgarwalGoyal2012}
+Shipra Agrawal and Navin Goyal. 2012.
+\newblock \href {https://www.cs.mcgill.ca/~vkules/bandits.pdf} {Analysis of thompson sampling for the multi-armed bandit problem}.
+\newblock \emph{Proceedings of the 25th Annual Conference on Learning Theory, PMLR}.
+
+\bibitem[{Alamdari et~al.(2024)Alamdari, Cao, and Wilson}]{alamdari-etal-2024-jump}
+Parand~A. Alamdari, Yanshuai Cao, and Kevin~H. Wilson. 2024.
+\newblock \href {https://doi.org/10.18653/v1/2024.emnlp-main.1107} {Jump starting bandits with {LLM}-generated prior knowledge}.
+\newblock In \emph{Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing}, pages 19821--19833, Miami, Florida, USA. Association for Computational Linguistics.
+
+\bibitem[{Bouneffouf and Rish(2019)}]{bouneffouf2019surveypracticalapplicationsmultiarmed}
+Djallel Bouneffouf and Irina Rish. 2019.
+\newblock \href {https://arxiv.org/abs/1904.10040} {A survey on practical applications of multi-armed and contextual bandits}.
+\newblock \emph{Preprint}, arXiv:1904.10040.
+
+\bibitem[{Dong et~al.(2018)Dong, Shen, Crawford, van Hoof, and Cheung}]{dong-etal-2018-banditsum}
+Yue Dong, Yikang Shen, Eric Crawford, Herke van Hoof, and Jackie Chi~Kit Cheung. 2018.
+\newblock \href {https://doi.org/10.18653/v1/D18-1409} {{B}andit{S}um: Extractive summarization as a contextual bandit}.
+\newblock In \emph{Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing}, pages 3739--3748, Brussels, Belgium. Association for Computational Linguistics.
+
+\bibitem[{Falke and Lehnen(2021)}]{falke-lehnen-2021-feedback}
+Tobias Falke and Patrick Lehnen. 2021.
+\newblock \href {https://doi.org/10.18653/v1/2021.emnlp-main.91} {Feedback attribution for counterfactual bandit learning in multi-domain spoken language understanding}.
+\newblock In \emph{Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing}, pages 1190--1198, Online and Punta Cana, Dominican Republic. Association for Computational Linguistics.
+
+\bibitem[{Gao et~al.(2022)Gao, Choi, and Artzi}]{gao-etal-2022-simulating}
+Ge~Gao, Eunsol Choi, and Yoav Artzi. 2022.
+\newblock \href {https://doi.org/10.18653/v1/2022.acl-long.355} {Simulating bandit learning from user feedback for extractive question answering}.
+\newblock In \emph{Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)}, pages 5167--5179, Dublin, Ireland. Association for Computational Linguistics.
+
+\bibitem[{Haffari et~al.(2017)Haffari, Tran, and Carman}]{haffari-etal-2017-efficient}
+Gholamreza Haffari, Tuan~Dung Tran, and Mark Carman. 2017.
+\newblock \href {https://aclanthology.org/E17-1039/} {Efficient benchmarking of {NLP} {API}s using multi-armed bandits}.
+\newblock In \emph{Proceedings of the 15th Conference of the {E}uropean Chapter of the Association for Computational Linguistics: Volume 1, Long Papers}, pages 408--416, Valencia, Spain. Association for Computational Linguistics.
+
+\bibitem[{Hancock et~al.(2019)Hancock, Bordes, Mazare, and Weston}]{hancock-etal-2019-learning}
+Braden Hancock, Antoine Bordes, Pierre-Emmanuel Mazare, and Jason Weston. 2019.
+\newblock \href {https://doi.org/10.18653/v1/P19-1358} {Learning from dialogue after deployment: Feed yourself, chatbot!}
+\newblock In \emph{Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics}, pages 3667--3684, Florence, Italy. Association for Computational Linguistics.
+
+\bibitem[{Kiyohara et~al.(2025)Kiyohara, Cao, Saito, and Joachims}]{kiyohara2025prompt}
+Haruka Kiyohara, Daniel~Yiming Cao, Yuta Saito, and Thorsten Joachims. 2025.
+\newblock \href {https://openreview.net/forum?id=1upXwlEW8y} {Prompt optimization with logged bandit data}.
+
+\bibitem[{Kreutzer et~al.(2018{\natexlab{a}})Kreutzer, Khadivi, Matusov, and Riezler}]{kreutzer-etal-2018-neural}
+Julia Kreutzer, Shahram Khadivi, Evgeny Matusov, and Stefan Riezler. 2018{\natexlab{a}}.
+\newblock \href {https://doi.org/10.18653/v1/N18-3012} {Can neural machine translation be improved with user feedback?}
+\newblock In \emph{Proceedings of the 2018 Conference of the North {A}merican Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 3 (Industry Papers)}, pages 92--105, New Orleans - Louisiana. Association for Computational Linguistics.
+
+\bibitem[{Kreutzer et~al.(2017)Kreutzer, Sokolov, and Riezler}]{kreutzer-etal-2017-bandit}
+Julia Kreutzer, Artem Sokolov, and Stefan Riezler. 2017.
+\newblock \href {https://doi.org/10.18653/v1/P17-1138} {Bandit structured prediction for neural sequence-to-sequence learning}.
+\newblock In \emph{Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)}, pages 1503--1513, Vancouver, Canada. Association for Computational Linguistics.
+
+\bibitem[{Kreutzer et~al.(2018{\natexlab{b}})Kreutzer, Uyheng, and Riezler}]{kreutzer-etal-2018-reliability}
+Julia Kreutzer, Joshua Uyheng, and Stefan Riezler. 2018{\natexlab{b}}.
+\newblock \href {https://doi.org/10.18653/v1/P18-1165} {Reliability and learnability of human bandit feedback for sequence-to-sequence reinforcement learning}.
+\newblock In \emph{Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)}, pages 1777--1788, Melbourne, Australia. Association for Computational Linguistics.
+
+\bibitem[{Kreutzer et~al.(2021)Kreutzer, Vilar, and Sokolov}]{bandits-dont-follow-rules-kreutzer-etal-2021}
+Julia Kreutzer, David Vilar, and Artem Sokolov. 2021.
+\newblock \href {https://doi.org/10.18653/v1/2021.findings-emnlp.274} {Bandits don`t follow rules: Balancing multi-facet machine translation with multi-armed bandits}.
+\newblock In \emph{Findings of the Association for Computational Linguistics: EMNLP 2021}, pages 3190--3204, Punta Cana, Dominican Republic. Association for Computational Linguistics.
+
+\bibitem[{Kuleshov and Precup(2000)}]{KuleshovPrecup2000}
+Volodymyr Kuleshov and Doina Precup. 2000.
+\newblock \href {https://proceedings.mlr.press/v23/agrawal12/agrawal12.pdf} {Algorithms for the multi-armed bandit problem}.
+\newblock \emph{Journal of Machine Learning Research 1}.
+
+\bibitem[{Liu et~al.(2018)Liu, Yu, Lane, and Mengshoel}]{customized-nonlinear-bandits-liu-2018}
+Bing Liu, Tong Yu, Ian Lane, and Ole~J. Mengshoel. 2018.
+\newblock \href {https://cdn.aaai.org/ojs/12028/12028-13-15556-1-2-20201228.pdf} {Customized nonlinear bandits for online response selection in neural conversation models}.
+\newblock In \emph{Proceedings of the Thirty-Second AAAI Conference on Artificial Intelligence and Thirtieth Innovative Applications of Artificial Intelligence Conference and Eighth AAAI Symposium on Educational Advances in Artificial Intelligence}, AAAI'18/IAAI'18/EAAI'18. AAAI Press.
+
+\bibitem[{Lu et~al.(2010)Lu, Pál, and Pál}]{Lu2010}
+Tyler Lu, Dávid Pál, and Martin Pál. 2010.
+\newblock \href {https://proceedings.mlr.press/v9/lu10a/lu10a.pdf} {Contextual multi-armed bandits}.
+\newblock \emph{Proceedings of the Thirteenth International Conference on Artificial Intelligence and Statistics, PMLR, Google Research}.
+
+\bibitem[{Moerchen et~al.(2020)Moerchen, Ernst, and Zappella}]{Amazon-Moerchen2020}
+Fabian Moerchen, Patrick Ernst, and Giovanni Zappella. 2020.
+\newblock \href {https://doi.org/10.1145/3340531.3412736} {Personalizing natural language understanding using multi-armed bandits and implicit feedback}.
+\newblock In \emph{Proceedings of the 29th ACM International Conference on Information \& Knowledge Management}, CIKM '20, page 2661–2668, New York, NY, USA. Association for Computing Machinery.
+
+\bibitem[{Naradowsky et~al.(2020)Naradowsky, Zhang, and Duh}]{naradowsky-etal-2020-machine}
+Jason Naradowsky, Xuan Zhang, and Kevin Duh. 2020.
+\newblock \href {https://aclanthology.org/2020.amta-research.5/} {Machine translation system selection from bandit feedback}.
+\newblock In \emph{Proceedings of the 14th Conference of the Association for Machine Translation in the Americas (Volume 1: Research Track)}, pages 50--63, Virtual. Association for Machine Translation in the Americas.
+
+\bibitem[{Nguyen et~al.(2017)Nguyen, Daum{\'e}~III, and Boyd-Graber}]{nguyen-etal-2017-reinforcement}
+Khanh Nguyen, Hal Daum{\'e}~III, and Jordan Boyd-Graber. 2017.
+\newblock \href {https://doi.org/10.18653/v1/D17-1153} {Reinforcement learning for bandit neural machine translation with simulated human feedback}.
+\newblock In \emph{Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing}, pages 1464--1474, Copenhagen, Denmark. Association for Computational Linguistics.
+
+\bibitem[{Nie et~al.(2025)Nie, Su, Chang, Lee, Chi, Le, and Chen}]{banditbench-nie2025evolve}
+Allen Nie, Yi~Su, Bo~Chang, Jonathan Lee, Ed~H. Chi, Quoc~V Le, and Minmin Chen. 2025.
+\newblock \href {https://openreview.net/forum?id=0Fi3u4RCyU} {Evolve: Evaluating and optimizing {LLM}s for exploration}.
+
+\bibitem[{Pasunuru et~al.(2020)Pasunuru, Guo, and Bansal}]{pasunuru-etal-2020-dorb}
+Ramakanth Pasunuru, Han Guo, and Mohit Bansal. 2020.
+\newblock \href {https://doi.org/10.18653/v1/2020.emnlp-main.625} {{DORB}: Dynamically optimizing multiple rewards with bandits}.
+\newblock In \emph{Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)}, pages 7766--7780, Online. Association for Computational Linguistics.
+
+\bibitem[{Perez and Silander(2018)}]{perez2018contextual}
+Julien Perez and Tomi Silander. 2018.
+\newblock \href {https://openreview.net/forum?id=SJiHOSeR-} {Contextual memory bandit for pro-active dialog engagement}.
+
+\bibitem[{Petrushkov et~al.(2018)Petrushkov, Khadivi, and Matusov}]{petrushkov-etal-2018-learning}
+Pavel Petrushkov, Shahram Khadivi, and Evgeny Matusov. 2018.
+\newblock \href {https://doi.org/10.18653/v1/P18-2052} {Learning from chunk-based feedback in neural machine translation}.
+\newblock In \emph{Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Volume 2: Short Papers)}, pages 326--331, Melbourne, Australia. Association for Computational Linguistics.
+
+\bibitem[{Sokolov et~al.(2016)Sokolov, Kreutzer, Lo, and Riezler}]{sokolov-etal-2016-learning}
+Artem Sokolov, Julia Kreutzer, Christopher Lo, and Stefan Riezler. 2016.
+\newblock \href {https://doi.org/10.18653/v1/P16-1152} {Learning structured predictors from bandit feedback for interactive {NLP}}.
+\newblock In \emph{Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)}, pages 1610--1620, Berlin, Germany. Association for Computational Linguistics.
+
+\bibitem[{Sun et~al.(2025)Sun, Wang, Yang, Xiao, Lui, and Dai}]{sun2025largelanguagemodelenhancedmultiarmed}
+Jiahang Sun, Zhiyong Wang, Runhan Yang, Chenjun Xiao, John C.~S. Lui, and Zhongxiang Dai. 2025.
+\newblock \href {https://arxiv.org/abs/2502.01118} {Large language model-enhanced multi-armed bandits}.
+\newblock \emph{Preprint}, arXiv:2502.01118.
+
+\bibitem[{Tang et~al.(2024)Tang, Li, Du, and Xie}]{tang2024adaptingnonstationaryenvironmentsmultiarmed}
+Xiaqiang Tang, Jian Li, Nan Du, and Sihong Xie. 2024.
+\newblock \href {https://arxiv.org/abs/2412.07618} {Adapting to non-stationary environments: Multi-armed bandit enhanced retrieval-augmented generation on knowledge graphs}.
+
+\bibitem[{Upadhyay et~al.(2019)Upadhyay, Agarwal, Bounneffouf, and Khazaeni}]{upadhyay2019banditapproachposteriordialog}
+Sohini Upadhyay, Mayank Agarwal, Djallel Bounneffouf, and Yasaman Khazaeni. 2019.
+\newblock \href {https://arxiv.org/abs/1906.09384} {A bandit approach to posterior dialog orchestration under a budget}.
+\newblock \emph{Preprint}, arXiv:1906.09384.
+
+\bibitem[{Urteaga et~al.(2023)Urteaga, Draidia, Lancewicki, and Khadivi}]{urteaga-etal-2023-multi}
+Inigo Urteaga, Moulay~Zaidane Draidia, Tomer Lancewicki, and Shahram Khadivi. 2023.
+\newblock \href {https://doi.org/10.18653/v1/2023.findings-acl.675} {Multi-armed bandits for resource efficient, online optimization of language model pre-training: the use case of dynamic masking}.
+\newblock In \emph{Findings of the Association for Computational Linguistics: ACL 2023}, pages 10609--10627, Toronto, Canada. Association for Computational Linguistics.
+
+\bibitem[{van~den Akker et~al.(2023)van~den Akker, Jeunen, Li, London, Nazari, and Parekh}]{akker2023practicalbanditsindustryperspective}
+Bram van~den Akker, Olivier Jeunen, Ying Li, Ben London, Zahra Nazari, and Devesh Parekh. 2023.
+\newblock \href {https://arxiv.org/abs/2302.01223} {Practical bandits: An industry perspective}.
+\newblock \emph{Preprint}, arXiv:2302.01223.
+
+\bibitem[{Vaswani et~al.(2017)Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez, Kaiser, and Polosukhin}]{vaswani2017}
+Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan~N. Gomez, \L{}ukasz Kaiser, and Illia Polosukhin. 2017.
+\newblock \href {https://arxiv.org/pdf/1706.03762} {Attention is all you need}.
+\newblock In \emph{Proceedings of the 31st International Conference on Neural Information Processing Systems}, NIPS'17, page 6000–6010, Red Hook, NY, USA. Curran Associates Inc.
+
+\bibitem[{Zhang et~al.(2025)Zhang, Zhong, Zhang, Chai, Wang, Zhuang, Bai, Jiantao, Cao, Fan, Yuan, Wang, and He}]{zhang2025harnessing}
+Chi Zhang, Huaping Zhong, Kuan Zhang, Chengliang Chai, Rui Wang, Xinlin Zhuang, Tianyi Bai, Qiu Jiantao, Lei Cao, Ju~Fan, Ye~Yuan, Guoren Wang, and Conghui He. 2025.
+\newblock \href {https://openreview.net/forum?id=bMC1t7eLRc} {Harnessing diversity for important data selection in pretraining large language models}.
+\newblock In \emph{The Thirteenth International Conference on Learning Representations}.
+
+\bibitem[{Zhang et~al.(2023)Zhang, Zhao, Wang, Wang, Liang, Tao, Huang, and Feng}]{zhang2023multiactiondialogpolicylearning}
+Shuo Zhang, Junzhou Zhao, Pinghui Wang, Tianxiang Wang, Zi~Liang, Jing Tao, Yi~Huang, and Junlan Feng. 2023.
+\newblock \href {https://arxiv.org/abs/2302.13505} {Multi-action dialog policy learning from logged user feedback}.
+\newblock \emph{Preprint}, arXiv:2302.13505.
+
+\bibitem[{Zhang et~al.(2020)Zhang, Xie, Li, and C.S.~Lui}]{zhang-bytedance-2019}
+Xiaoying Zhang, Hong Xie, Hang Li, and John C.S.~Lui. 2020.
+\newblock \href {https://doi.org/10.1145/3366423.3380148} {Conversational contextual bandit: Algorithm and application}.
+\newblock In \emph{Proceedings of The Web Conference 2020}, WWW '20, page 662–672, New York, NY, USA. Association for Computing Machinery.
+
+\bibitem[{Zhu and Van~Roy(2023)}]{meta-recommender-bandits}
+Zheqing Zhu and Benjamin Van~Roy. 2023.
+\newblock \href {https://doi.org/10.1145/3583780.3615048} {Scalable neural contextual bandit for recommender systems}.
+\newblock In \emph{Proceedings of the 32nd ACM International Conference on Information and Knowledge Management}, CIKM '23, page 3636–3646, New York, NY, USA. Association for Computing Machinery.
+
+\end{thebibliography}
