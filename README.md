@@ -1,0 +1,5 @@
+# A Survey on Use-Cases of Bandit Problems in Natural Language Processing
+
+## Abstract
+
+Multi-armed bandits have found use across various domains in sequential decision-making tasks, from assigning treatment arms in clinical trials to optimizing click-through rate at industry scale. This survey aims to evaluate the use-cases and effectiveness of bandit algorithms in natural language processing (NLP) settings, providing a unified compendium of existing frameworks and areas for further study. I motivate the use of bandits via structured prediction, where models receive partial, delayed, or implicit supervision from bandit feedback rather than full ground-truth labels. I examine use cases across a range of subfields including machine translation, dialog generation, question answering, and large language models. Through a synthesis of over 30 papers, I trace the historical development of bandit methods in NLP, outline key algorithmic frameworks, and identify emerging trends in both research and industry.
